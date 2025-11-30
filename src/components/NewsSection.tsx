@@ -1,31 +1,47 @@
 import { Calendar, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { formatDistanceToNow } from "date-fns";
+import { es } from "date-fns/locale";
 
 const NewsSection = () => {
-  const newsItems = [
-    {
-      id: 1,
-      title: "¡Nuevo segmento en el show!",
-      excerpt: "Esta semana estrenamos un nuevo segmento donde responderemos todas sus preguntas...",
-      image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=400",
-      date: "Hace 2 horas",
+  const { data: newsItems, isLoading } = useQuery({
+    queryKey: ["news-posts"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("news_posts")
+        .select("*")
+        .eq("published", true)
+        .order("created_at", { ascending: false })
+        .limit(6);
+
+      if (error) throw error;
+      return data;
     },
-    {
-      id: 2,
-      title: "Entrevista exclusiva con artista sorpresa",
-      excerpt: "No se pierdan la entrevista más esperada de la semana este viernes...",
-      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400",
-      date: "Hace 5 horas",
-    },
-    {
-      id: 3,
-      title: "Los mejores momentos de la semana",
-      excerpt: "Revive los momentos más divertidos y controversiales de esta semana...",
-      image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400",
-      date: "Hace 1 día",
-    },
-  ];
+  });
+
+  if (isLoading) {
+    return (
+      <section id="las-10" className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <p className="text-center text-muted-foreground">Cargando noticias...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (!newsItems || newsItems.length === 0) {
+    return (
+      <section id="las-10" className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-8">Las 10 de Erazno</h2>
+          <p className="text-center text-muted-foreground">No hay noticias disponibles en este momento.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="las-10" className="py-16 bg-background">
@@ -50,7 +66,7 @@ const NewsSection = () => {
             >
               <div className="aspect-video overflow-hidden">
                 <img
-                  src={item.image}
+                  src={item.image_url}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -66,7 +82,10 @@ const NewsSection = () => {
               <CardFooter>
                 <div className="flex items-center text-sm text-muted-foreground">
                   <Calendar className="h-4 w-4 mr-2" />
-                  {item.date}
+                  {formatDistanceToNow(new Date(item.created_at), {
+                    addSuffix: true,
+                    locale: es,
+                  })}
                 </div>
               </CardFooter>
             </Card>
