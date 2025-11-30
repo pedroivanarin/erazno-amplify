@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LogOut, Newspaper, Gift, Video, Image } from "lucide-react";
+import { LogOut, Newspaper, Gift, Video, Image, TrendingUp } from "lucide-react";
 import NewsManager from "@/components/admin/NewsManager";
 import PromotionsManager from "@/components/admin/PromotionsManager";
 import VideosManager from "@/components/admin/VideosManager";
 import BannersManager from "@/components/admin/BannersManager";
+import TickerManager from "@/components/admin/TickerManager";
 
 const Admin = () => {
   const { user, isAdmin, signOut, loading } = useAuth();
@@ -45,7 +46,7 @@ const Admin = () => {
 
       <div className="container mx-auto px-4 py-8">
         <Tabs defaultValue="news" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
             <TabsTrigger value="news" className="flex items-center gap-2">
               <Newspaper className="h-4 w-4" />
               Noticias
@@ -61,6 +62,10 @@ const Admin = () => {
             <TabsTrigger value="banners" className="flex items-center gap-2">
               <Image className="h-4 w-4" />
               Banners
+            </TabsTrigger>
+            <TabsTrigger value="ticker" className="flex items-center gap-2">
+              <TrendingUp className="h-4 w-4" />
+              Ticker
             </TabsTrigger>
           </TabsList>
 
@@ -78,6 +83,10 @@ const Admin = () => {
 
           <TabsContent value="banners">
             <BannersManager />
+          </TabsContent>
+
+          <TabsContent value="ticker">
+            <TickerManager />
           </TabsContent>
         </Tabs>
       </div>
