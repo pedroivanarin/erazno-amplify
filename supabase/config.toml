@@ -1,1 +1,4 @@
 project_id = "vdmhirxnhxdxukdkbixw"
+
+[functions.social-post-webhook]
+verify_jwt = false  # Permite que Zapier/n8n llame al endpoint sin autenticación
