@@ -53,6 +53,9 @@ export default {
           gold: "hsl(var(--brand-gold))",
         },
       },
+      fontFamily: {
+        doto: ['Doto', 'sans-serif'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
