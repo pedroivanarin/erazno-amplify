@@ -13,7 +13,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10 text-center animate-slide-up">
         <h1 className="text-5xl md:text-7xl font-black mb-6 text-white drop-shadow-lg">
-          Abner y Nepetronic
+          Erazno y La Chokolata
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
           El show más divertido de la radio. ¡Escúchanos en vivo o disfruta de nuestros mejores momentos!
