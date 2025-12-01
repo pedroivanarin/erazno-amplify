@@ -36,7 +36,7 @@ const NewsSection = () => {
     return (
       <section id="las-10" className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-8">Las 10 de Erazno</h2>
+          <h2 className="text-4xl font-bold mb-8">Las 10 de Abner</h2>
           <p className="text-center text-muted-foreground">No hay noticias disponibles en este momento.</p>
         </div>
       </section>
@@ -48,7 +48,7 @@ const NewsSection = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-4xl font-bold mb-2">Las 10 de Erazno</h2>
+            <h2 className="text-4xl font-bold mb-2">Las 10 de Abner</h2>
             <p className="text-muted-foreground">Las últimas noticias y momentos del show</p>
           </div>
           <Badge variant="outline" className="hidden md:flex items-center gap-2">
