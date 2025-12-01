@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause } from "lucide-react";
+import playerThumbnail from "@/assets/player-thumbnail.png";
 
 const CompactPodcastPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -51,7 +52,8 @@ const CompactPodcastPlayer = () => {
       />
 
       {/* Thumbnail */}
-      <div className="hidden lg:block w-8 h-8 rounded overflow-hidden flex-shrink-0 bg-gradient-to-br from-red-600 to-red-800">
+      <div className="hidden lg:block w-8 h-8 rounded overflow-hidden flex-shrink-0">
+        <img src={playerThumbnail} alt="Podcast" className="w-full h-full object-cover" />
       </div>
 
       {/* Episode Info with Progress Bar */}
