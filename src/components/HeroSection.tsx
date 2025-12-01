@@ -20,21 +20,25 @@ const HeroSection = () => {
           <p className="text-sm md:text-base uppercase tracking-wider text-accent font-semibold mb-3">
             Episodio Especial.
           </p>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 text-white drop-shadow-lg">
+          <h1 className="text-[2.7rem] md:text-[4.05rem] font-black mb-6 text-white drop-shadow-lg leading-tight">
             Desde Las Vegas <br />
             en los Latin Grammy
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
             Platicamos con Luciano Luna, Mar Solis, Regulo Caro, Danny Lux, Alison Solis, Banda Renovación y más...
           </p>
-          <Button 
-            onClick={scrollToPodcast}
-            size="lg" 
-            className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 group"
-          >
-            <Play className="h-5 w-5 mr-2 group-hover:animate-pulse" />
-            Escúchalo ahora
-          </Button>
+          <div className="flex items-center gap-4">
+            <Button 
+              onClick={scrollToPodcast}
+              size="lg" 
+              className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 font-bold"
+            >
+              Escúchalo ahora
+            </Button>
+            <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group">
+              <Play className="h-6 w-6 text-accent-foreground group-hover:animate-pulse" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
