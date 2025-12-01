@@ -8,8 +8,6 @@ import ShowsSection from "@/components/ShowsSection";
 import TiendaSection from "@/components/TiendaSection";
 import SocialWall from "@/components/SocialWall";
 import Footer from "@/components/Footer";
-import LivePlayer from "@/components/LivePlayer";
-
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -23,7 +21,6 @@ const Index = () => {
       <TiendaSection />
       <SocialWall />
       <Footer />
-      <LivePlayer />
     </div>
   );
 };
