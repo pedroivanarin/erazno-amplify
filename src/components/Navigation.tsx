@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Radio } from "lucide-react";
 import { Button } from "./ui/button";
 import AdminLink from "./AdminLink";
 import CompactPodcastPlayer from "./CompactPodcastPlayer";
+import logo from "@/assets/logo.svg";
 
 const Navigation = () => {
   const navLinks = [
@@ -18,11 +18,8 @@ const Navigation = () => {
     <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <Radio className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold gradient-accent bg-clip-text text-transparent">
-              Erazno y La Chokolata
-            </span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Erazno y La Chokolata" className="h-12 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
