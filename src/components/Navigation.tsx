@@ -35,11 +35,8 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <CompactPodcastPlayer />
             <AdminLink />
-            <Button variant="default" size="sm" className="hidden md:flex">
-              En Vivo
-            </Button>
+            <CompactPodcastPlayer />
           </div>
         </div>
       </div>
