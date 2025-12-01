@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
+import { Play } from "lucide-react";
 
 const HeroSection = () => {
   const scrollToPodcast = () => {
@@ -29,8 +30,9 @@ const HeroSection = () => {
           <Button 
             onClick={scrollToPodcast}
             size="lg" 
-            className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform"
+            className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 group"
           >
+            <Play className="h-5 w-5 mr-2 group-hover:animate-pulse" />
             Escúchalo ahora
           </Button>
         </div>
