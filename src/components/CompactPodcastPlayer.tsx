@@ -58,7 +58,7 @@ const CompactPodcastPlayer = () => {
       {/* Episode Info with Progress Bar */}
       <div className="hidden md:flex flex-col min-w-[120px] max-w-[200px] overflow-hidden">
         <div className="overflow-hidden">
-          <span className="text-white text-xs font-medium whitespace-nowrap inline-block animate-scroll">
+          <span className="text-white text-xs font-doto font-medium whitespace-nowrap inline-block animate-scroll">
             E2065. Las 10 de Erazno, el Chokolatazo, Parodias y mucho más...
           </span>
         </div>
