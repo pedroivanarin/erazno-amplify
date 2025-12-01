@@ -138,6 +138,6 @@ All colors MUST be HSL.
   }
   
   .animate-scroll-fast {
-    animation: scroll 15s linear infinite;
+    animation: scroll 8s linear infinite;
   }
 }
