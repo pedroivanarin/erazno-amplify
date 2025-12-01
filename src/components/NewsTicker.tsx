@@ -11,14 +11,14 @@ const NewsTicker = () => {
   ];
 
   return (
-    <div className="bg-accent py-3 overflow-hidden relative">
+    <div 
+      className="bg-accent py-3 overflow-hidden relative"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="container mx-auto px-4 flex items-center gap-4">
         
-        <div 
-          className="flex-1 overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
+        <div className="flex-1 overflow-hidden">
           <div className={`flex gap-12 ${isPaused ? '' : 'animate-scroll'}`}>
             {/* Duplicamos los items para crear el efecto infinito */}
             {[...tweets, ...tweets].map((item, index) => (
