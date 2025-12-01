@@ -1,5 +1,4 @@
 import { Button } from "./ui/button";
-import { ChevronDown } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
@@ -8,18 +7,18 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-end overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBackground})` }}
       ></div>
       <div className="absolute inset-0 bg-black/30"></div>
       
-      <div className="container mx-auto px-4 relative z-10 text-center animate-slide-up">
+      <div className="container mx-auto px-4 relative z-10 text-right animate-slide-up max-w-xl mr-8 md:mr-16">
         <h1 className="text-5xl md:text-7xl font-black mb-6 text-white drop-shadow-lg">
           Erazno y La Chokolata
         </h1>
-        <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
+        <p className="text-xl md:text-2xl mb-8 text-white/90">
           El show más divertido de la radio. ¡Escúchanos en vivo o disfruta de nuestros mejores momentos!
         </p>
         <Button 
@@ -29,10 +28,6 @@ const HeroSection = () => {
         >
           Escucha el Podcast Aquí
         </Button>
-        
-        <div className="mt-12 animate-bounce">
-          <ChevronDown className="h-8 w-8 text-white mx-auto" />
-        </div>
       </div>
     </section>
   );

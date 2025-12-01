@@ -51,8 +51,7 @@ const CompactPodcastPlayer = () => {
       />
 
       {/* Thumbnail */}
-      <div className="hidden lg:block w-8 h-8 bg-primary rounded overflow-hidden flex-shrink-0">
-        <div className="w-full h-full bg-gradient-to-br from-red-600 to-red-800" />
+      <div className="hidden lg:block w-8 h-8 rounded overflow-hidden flex-shrink-0 bg-gradient-to-br from-red-600 to-red-800">
       </div>
 
       {/* Episode Info with Progress Bar */}
