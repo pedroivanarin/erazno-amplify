@@ -5,10 +5,9 @@ const NewsTicker = () => {
 
   // Latest tweets from @ERAZNOYLACHOKO
   const tweets = [
-    "Tweet 1 text here",
-    "Tweet 2 text here",
-    "Tweet 3 text here",
-    "Tweet 4 text here",
+    "La copa del mundo no era importante, no era necesaria según los fans de Messi. Claro hasta que se la robaron en Qatar 🇶🇦 Ahora es Messi y la copa del mundo 😂 En fin la hipocresía",
+    "El jugador más INFRAVALORADO de la historia. No hubo nadie que le ayudara en el 2014. No pudo jugar la final lamentablemente",
+    "Ganó el primer triplete Gracias a Negreira Ahora va a ganar otro, gastando una millonada y saltandose las normas del fairplay.",
   ];
 
   return (
