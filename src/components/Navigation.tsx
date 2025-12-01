@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Radio } from "lucide-react";
 import { Button } from "./ui/button";
 import AdminLink from "./AdminLink";
+import CompactPodcastPlayer from "./CompactPodcastPlayer";
 
 const Navigation = () => {
   const navLinks = [
@@ -37,6 +38,7 @@ const Navigation = () => {
           </div>
 
           <div className="flex items-center gap-2">
+            <CompactPodcastPlayer />
             <AdminLink />
             <Button variant="default" size="sm" className="hidden md:flex">
               En Vivo
