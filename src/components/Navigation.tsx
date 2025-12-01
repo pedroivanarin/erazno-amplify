@@ -6,7 +6,7 @@ import AdminLink from "./AdminLink";
 const Navigation = () => {
   const navLinks = [
     { name: "Inicio", href: "/" },
-    { name: "Las 10 de Erazno", href: "#las-10" },
+    { name: "Las 10 de Abner", href: "#las-10" },
     { name: "Promociones", href: "#promociones" },
     { name: "Shows Destacados", href: "#shows" },
     { name: "Tienda", href: "#tienda" },
@@ -20,7 +20,7 @@ const Navigation = () => {
           <Link to="/" className="flex items-center space-x-2">
             <Radio className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold gradient-accent bg-clip-text text-transparent">
-              Erazno y La Chokolata
+              Abner y Nepetronic
             </span>
           </Link>
 
