@@ -22,12 +22,15 @@ const NewsTicker = () => {
           <div className={`flex gap-12 ${isPaused ? '' : 'animate-scroll'}`}>
             {/* Duplicamos los items para crear el efecto infinito */}
             {[...tweets, ...tweets].map((item, index) => (
-              <span
+              <a
                 key={index}
-                className="text-black font-medium whitespace-nowrap text-sm md:text-base"
+                href="https://x.com/ERAZNOYLACHOKO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black font-medium whitespace-nowrap text-sm md:text-base hover:text-black/80 transition-colors cursor-pointer"
               >
                 {item}
-              </span>
+              </a>
             ))}
           </div>
         </div>
