@@ -1,40 +1,154 @@
-import { Headphones } from "lucide-react";
+import { Play, Pause, SkipBack, SkipForward } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 const PodcastSection = () => {
-  return (
-    <section id="podcast" className="min-h-screen bg-muted/50 flex items-center">
-      <div className="container mx-auto px-4 w-full">
-        <div className="max-w-4xl mx-auto text-center mb-8">
-          <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-4">
-            <Headphones className="h-8 w-8 text-primary" />
-          </div>
-          <h2 className="text-4xl font-bold mb-4">Escucha Nuestro Podcast</h2>
-          <p className="text-muted-foreground">
-            Todos los episodios disponibles en tus plataformas favoritas
-          </p>
-        </div>
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(180); // 3 minutes as default
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-        <div className="max-w-3xl mx-auto bg-card rounded-xl shadow-card p-8 border border-border">
-          <div className="aspect-video bg-muted rounded-lg flex items-center justify-center mb-4">
-            <div className="text-center">
-              <Headphones className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">Reproductor de Podcast (Spotify/Apple Podcasts)</p>
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(e.target.value);
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const handleNext = () => {
+    // Skip forward 15 seconds
+    const newTime = Math.min(currentTime + 15, duration);
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
+  const handlePrevious = () => {
+    // Skip backward 15 seconds
+    const newTime = Math.max(currentTime - 15, 0);
+    setCurrentTime(newTime);
+    if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+  };
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isPlaying) {
+      interval = setInterval(() => {
+        setCurrentTime(prev => {
+          if (prev >= duration) {
+            setIsPlaying(false);
+            return duration;
+          }
+          return prev + 1;
+        });
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying, duration]);
+
+  return (
+    <section 
+      id="podcast" 
+      className="min-h-screen flex items-center relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(to bottom, #ff416c, #ff4b2b)'
+      }}
+    >
+      <div className="container mx-auto px-4 w-full">
+        <div className="max-w-4xl mx-auto">
+          {/* Big Player */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-white/20">
+            
+            {/* Time Display */}
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-white text-2xl font-semibold tabular-nums">
+                {formatTime(currentTime)}
+              </span>
+              <span className="text-white/70 text-2xl font-semibold tabular-nums">
+                {formatTime(duration)}
+              </span>
             </div>
-          </div>
-          
-          <div className="flex flex-wrap gap-4 justify-center mt-6">
-            <a
-              href="#"
-              className="px-6 py-3 bg-[#1DB954] text-white rounded-full font-semibold hover:bg-[#1ed760] transition-colors"
-            >
-              Spotify
-            </a>
-            <a
-              href="#"
-              className="px-6 py-3 bg-gradient-to-r from-[#FA233B] to-[#FB5C74] text-white rounded-full font-semibold hover:opacity-90 transition-opacity"
-            >
-              Apple Podcasts
-            </a>
+
+            {/* Progress Bar */}
+            <div className="mb-12">
+              <input
+                type="range"
+                min="0"
+                max={duration}
+                value={currentTime}
+                onChange={handleProgressChange}
+                className="w-full h-3 bg-white/20 rounded-full appearance-none cursor-pointer
+                  [&::-webkit-slider-thumb]:appearance-none
+                  [&::-webkit-slider-thumb]:w-6
+                  [&::-webkit-slider-thumb]:h-6
+                  [&::-webkit-slider-thumb]:rounded-full
+                  [&::-webkit-slider-thumb]:bg-white
+                  [&::-webkit-slider-thumb]:cursor-pointer
+                  [&::-webkit-slider-thumb]:shadow-lg
+                  [&::-webkit-slider-thumb]:transition-transform
+                  [&::-webkit-slider-thumb]:hover:scale-110
+                  [&::-moz-range-thumb]:w-6
+                  [&::-moz-range-thumb]:h-6
+                  [&::-moz-range-thumb]:rounded-full
+                  [&::-moz-range-thumb]:bg-white
+                  [&::-moz-range-thumb]:border-0
+                  [&::-moz-range-thumb]:cursor-pointer
+                  [&::-moz-range-thumb]:shadow-lg"
+                style={{
+                  background: `linear-gradient(to right, white ${(currentTime / duration) * 100}%, rgba(255,255,255,0.2) ${(currentTime / duration) * 100}%)`
+                }}
+              />
+            </div>
+
+            {/* Controls */}
+            <div className="flex items-center justify-center gap-8">
+              {/* Previous Button */}
+              <button
+                onClick={handlePrevious}
+                className="text-white hover:scale-110 transition-transform active:scale-95"
+                aria-label="Previous"
+              >
+                <SkipBack size={40} fill="white" />
+              </button>
+
+              {/* Play/Pause Button */}
+              <button
+                onClick={togglePlayPause}
+                className="bg-white text-[#ff416c] rounded-full p-6 hover:scale-110 transition-transform active:scale-95 shadow-2xl"
+                aria-label={isPlaying ? "Pause" : "Play"}
+              >
+                {isPlaying ? (
+                  <Pause size={48} fill="currentColor" />
+                ) : (
+                  <Play size={48} fill="currentColor" className="ml-1" />
+                )}
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={handleNext}
+                className="text-white hover:scale-110 transition-transform active:scale-95"
+                aria-label="Next"
+              >
+                <SkipForward size={40} fill="white" />
+              </button>
+            </div>
+
+            {/* Hidden audio element for future implementation */}
+            <audio ref={audioRef} />
           </div>
         </div>
       </div>
