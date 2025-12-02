@@ -33,10 +33,10 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Inicio</a></li>
+              <li><a href="#podcast" className="hover:text-primary transition-colors">Shows Destacados</a></li>
               <li><a href="#las-10" className="hover:text-primary transition-colors">Las 10 de Erazno</a></li>
-              <li><a href="#promociones" className="hover:text-primary transition-colors">Promociones</a></li>
-              <li><a href="#shows" className="hover:text-primary transition-colors">Shows</a></li>
+              <li><a href="#tienda" className="hover:text-primary transition-colors">Tienda</a></li>
+              <li><a href="#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
             </ul>
           </div>
 
