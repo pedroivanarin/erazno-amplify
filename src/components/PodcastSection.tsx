@@ -65,21 +65,15 @@ const PodcastSection = () => {
   };
 
   const handleNext = () => {
-    // Skip forward 15 seconds
-    const newTime = Math.min(currentTime + 15, duration);
-    setCurrentTime(newTime);
-    if (audioRef.current) {
-      audioRef.current.currentTime = newTime;
-    }
+    const currentIndex = episodes.findIndex(ep => ep.number === currentEpisode.number);
+    const nextIndex = (currentIndex + 1) % episodes.length;
+    handleEpisodeSelect(episodes[nextIndex]);
   };
 
   const handlePrevious = () => {
-    // Skip backward 15 seconds
-    const newTime = Math.max(currentTime - 15, 0);
-    setCurrentTime(newTime);
-    if (audioRef.current) {
-      audioRef.current.currentTime = newTime;
-    }
+    const currentIndex = episodes.findIndex(ep => ep.number === currentEpisode.number);
+    const prevIndex = currentIndex - 1 < 0 ? episodes.length - 1 : currentIndex - 1;
+    handleEpisodeSelect(episodes[prevIndex]);
   };
 
   useEffect(() => {
