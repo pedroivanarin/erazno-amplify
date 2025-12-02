@@ -9,14 +9,16 @@ const TiendaSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl">
           <ShoppingBag className="h-16 w-16 mb-6 text-white" />
-          <h2 className="text-4xl font-bold mb-4 text-white">Tienda Oficial</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white">Vístete Chido.</h2>
           <p className="text-xl mb-8 text-white/90">
-            Playeras, gorras, y mercancía exclusiva del show. 
-            ¡Lleva tu estilo Erazno a todas partes!
+            Visita nuestra tienda y encuentra playeras, gorras, y mercancía exclusiva del show. ¡Lleva tu estilo Erazno a todas partes!
           </p>
-          <Button size="lg" variant="secondary" className="shadow-glow">
+          <Button 
+            size="lg" 
+            className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 font-bold flex items-center gap-3"
+          >
             Visitar Tienda
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="h-5 w-5" />
           </Button>
         </div>
       </div>
