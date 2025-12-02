@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import AdminLink from "./AdminLink";
 import CompactPodcastPlayer from "./CompactPodcastPlayer";
 import logo from "@/assets/logo.svg";
 
 const Navigation = () => {
+  const location = useLocation();
+  
   const navLinks = [
     { name: "Las 10 de Erazno", href: "#las-10" },
     { name: "Promociones", href: "#promociones" },
@@ -22,11 +24,18 @@ const Navigation = () => {
     }
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center">
+          <Link to="/" onClick={handleLogoClick} className="flex items-center">
             <img src={logo} alt="Erazno y La Chokolata" className="h-12 w-auto" />
           </Link>
 
