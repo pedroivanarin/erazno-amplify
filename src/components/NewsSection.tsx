@@ -124,6 +124,7 @@ const NewsSection = () => {
                   }}
                 >
                   <Card 
+                    onClick={() => setCurrentIndex(index)}
                     className={`overflow-hidden transition-all duration-500 cursor-pointer border-border w-[320px] pointer-events-auto ${
                       isCenter ? 'shadow-glow ring-2 ring-primary/50' : 'shadow-lg'
                     }`}
