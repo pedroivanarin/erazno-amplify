@@ -1,4 +1,4 @@
-import { ShoppingBag, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import tiendaBackground from "@/assets/tienda-background.png";
 
@@ -6,9 +6,9 @@ const TiendaSection = () => {
   return (
     <section id="tienda" className="min-h-screen py-32 bg-muted/50 relative overflow-hidden flex items-center">
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${tiendaBackground})` }}></div>
+      <div className="absolute inset-0 bg-black/30"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl">
-          <ShoppingBag className="h-16 w-16 mb-6 text-white" />
           <h2 className="text-4xl font-bold mb-4 text-white">Vístete Chido.</h2>
           <p className="text-xl mb-8 text-white/90">
             Visita nuestra tienda y encuentra playeras, gorras, y mercancía exclusiva del show. ¡Lleva tu estilo Erazno a todas partes!
