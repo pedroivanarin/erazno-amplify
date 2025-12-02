@@ -38,20 +38,19 @@ const Navigation = () => {
             <img src={logo} alt="Erazno y La Chokolata" className="h-12 w-auto" />
           </Link>
 
-          <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary cursor-pointer"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-
           <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center space-x-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary cursor-pointer"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
             <AdminLink />
             <CompactPodcastPlayer />
           </div>
