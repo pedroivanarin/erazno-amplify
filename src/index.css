@@ -142,7 +142,7 @@ All colors MUST be HSL.
   }
   
   .animate-scroll-seamless {
-    animation: scroll 15s linear infinite;
+    animation: scroll 12s linear infinite;
     will-change: transform;
   }
   
