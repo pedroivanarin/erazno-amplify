@@ -1,5 +1,6 @@
 import { Play, Pause, SkipBack, SkipForward } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import podcastArtwork from "@/assets/podcast-artwork.png";
 
 const PodcastSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -72,6 +73,17 @@ const PodcastSection = () => {
           {/* Big Player */}
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-white/20">
             
+            {/* Podcast Artwork */}
+            <div className="flex justify-center mb-8">
+              <div className="w-64 h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30">
+                <img 
+                  src={podcastArtwork} 
+                  alt="Erazno y La Chokolata Podcast" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
             {/* Time Display */}
             <div className="flex items-center justify-between mb-6">
               <span className="text-white text-2xl font-semibold tabular-nums">
