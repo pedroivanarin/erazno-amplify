@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 const TiendaSection = () => {
   return (
-    <section id="tienda" className="py-16 bg-muted/50">
+    <section id="tienda" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="relative overflow-hidden rounded-2xl shadow-card">
