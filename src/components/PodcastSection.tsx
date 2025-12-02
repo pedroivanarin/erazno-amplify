@@ -7,12 +7,21 @@ const PodcastSection = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(180); // 3 minutes as default
   const [showPlaylist, setShowPlaylist] = useState(false);
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const [currentEpisode, setCurrentEpisode] = useState({
     number: "E2062",
     title: "Las 10 con Infieles, Parodias, el Chokolatazo, Hembras vs Machos, Asesinos Inesperados y más....",
     duration: "01:45:01"
   });
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const speeds = [1, 1.2, 1.5, 1.8, 2];
+
+  const cycleSpeed = () => {
+    const currentIndex = speeds.indexOf(playbackSpeed);
+    const nextIndex = (currentIndex + 1) % speeds.length;
+    setPlaybackSpeed(speeds[nextIndex]);
+  };
 
   const episodes = [
     { number: "E2066", title: "Las 10 de Erazno y el America, el Chokolatazo, Parodias, y llamadas de Santa", duration: "01:32:09" },
@@ -108,10 +117,11 @@ const PodcastSection = () => {
             
             {/* Speed Control Button - Top Left */}
             <button
+              onClick={cycleSpeed}
               className="absolute top-6 left-6 text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors"
               aria-label="Playback speed"
             >
-              1x
+              {playbackSpeed}x
             </button>
 
             {/* More Episodes Button - Top Right */}
