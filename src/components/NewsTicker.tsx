@@ -19,10 +19,7 @@ const NewsTicker = () => {
       <div className="container mx-auto px-4 flex items-center gap-4">
         
         <div className="flex-1 overflow-hidden">
-          <div 
-            className="flex gap-12 animate-scroll"
-            style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
-          >
+          <div className={`flex gap-12 ${isPaused ? '' : 'animate-scroll'}`}>
             {/* Duplicamos los items para crear el efecto infinito */}
             {[...tweets, ...tweets].map((item, index) => (
               <a
