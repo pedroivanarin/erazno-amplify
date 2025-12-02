@@ -6,11 +6,11 @@ const TiendaSection = () => {
     <section id="tienda" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="relative overflow-hidden rounded-2xl shadow-card">
+          <div className="relative overflow-hidden rounded-2xl shadow-card min-h-[500px] flex items-center justify-center">
             <div className="absolute inset-0 gradient-hero opacity-90"></div>
             <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200')] bg-cover bg-center opacity-20"></div>
             
-            <div className="relative z-10 p-12 text-center text-white">
+            <div className="relative z-10 p-12 text-center text-white my-16">
               <ShoppingBag className="h-16 w-16 mx-auto mb-6" />
               <h2 className="text-4xl font-bold mb-4">Tienda Oficial</h2>
               <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
