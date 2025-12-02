@@ -84,18 +84,15 @@ const PodcastSection = () => {
               </div>
             </div>
 
-            {/* Time Display */}
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-white text-2xl font-semibold tabular-nums">
-                {formatTime(currentTime)}
-              </span>
-              <span className="text-white/70 text-2xl font-semibold tabular-nums">
-                {formatTime(duration)}
-              </span>
+            {/* Episode Title */}
+            <div className="text-center mb-8">
+              <h3 className="text-white text-2xl font-bold leading-relaxed">
+                Las 10 con Infieles, Parodias, el Chokolatazo, Hembras vs Machos, Asesinos Inesperados y más....
+              </h3>
             </div>
 
             {/* Progress Bar */}
-            <div className="mb-12">
+            <div className="mb-4">
               <input
                 type="range"
                 min="0"
@@ -123,6 +120,16 @@ const PodcastSection = () => {
                   background: `linear-gradient(to right, white ${(currentTime / duration) * 100}%, rgba(255,255,255,0.2) ${(currentTime / duration) * 100}%)`
                 }}
               />
+            </div>
+
+            {/* Time Display */}
+            <div className="flex items-center justify-between mb-12">
+              <span className="text-white text-sm font-semibold tabular-nums">
+                {formatTime(currentTime)}
+              </span>
+              <span className="text-white/70 text-sm font-semibold tabular-nums">
+                {formatTime(duration)}
+              </span>
             </div>
 
             {/* Controls */}
