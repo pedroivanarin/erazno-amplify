@@ -1,5 +1,6 @@
 import { ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import tiendaBackground from "@/assets/tienda-background.png";
 
 const TiendaSection = () => {
   return (
@@ -7,8 +8,7 @@ const TiendaSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="relative overflow-hidden rounded-2xl shadow-card min-h-[500px] flex items-center justify-center">
-            <div className="absolute inset-0 gradient-hero opacity-90"></div>
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200')] bg-cover bg-center opacity-20"></div>
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${tiendaBackground})` }}></div>
             
             <div className="relative z-10 p-12 text-center text-white my-16">
               <ShoppingBag className="h-16 w-16 mx-auto mb-6" />
