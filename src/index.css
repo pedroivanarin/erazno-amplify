@@ -129,16 +129,21 @@ All colors MUST be HSL.
   }
   
   @keyframes scroll {
-    from {
+    0% {
       transform: translateX(0);
     }
-    to {
+    100% {
       transform: translateX(-50%);
     }
   }
   
   .animate-scroll-fast {
     animation: scroll 8s linear infinite;
+  }
+  
+  .animate-scroll-seamless {
+    animation: scroll 15s linear infinite;
+    will-change: transform;
   }
   
   .animate-gradient-slow {
