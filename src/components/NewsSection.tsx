@@ -53,58 +53,57 @@ const NewsSection = () => {
           <p className="text-muted-foreground text-lg">Las últimas noticias y momentos del show</p>
         </div>
 
-        <div className="relative max-w-7xl mx-auto" style={{ perspective: '2000px', perspectiveOrigin: 'center center' }}>
-          <div className="relative h-[600px] flex items-center justify-center">
+        <div className="relative max-w-7xl mx-auto">
+          <div className="relative h-[500px] flex items-center justify-center">
             {/* All cards rendered at once with absolute positioning */}
             {newsItems.map((item, index) => {
               const position = index - currentIndex;
               const isCenter = position === 0;
               
-              // Calculate 3D transform based on position
-              let rotateY = 0;
+              // Calculate horizontal fan layout
               let translateX = 0;
-              let translateZ = 0;
+              let translateY = 0;
               let scale = 1;
               let opacity = 1;
               let zIndex = 50;
+              let rotate = 0;
               
               if (position === 0) {
-                // Center card - featured
-                scale = 1;
-                translateZ = 100;
+                // Center card - featured and largest
+                scale = 1.1;
                 zIndex = 100;
                 opacity = 1;
               } else if (Math.abs(position) === 1) {
-                // Adjacent cards
-                rotateY = position * 45;
-                translateX = position * 280;
-                translateZ = -100;
-                scale = 0.8;
-                opacity = 0.8;
+                // Adjacent cards - slightly smaller and offset
+                translateX = position * 240;
+                translateY = Math.abs(position) * 30;
+                rotate = position * 8;
+                scale = 0.85;
+                opacity = 0.95;
                 zIndex = 90;
               } else if (Math.abs(position) === 2) {
-                // Cards further out
-                rotateY = position * 55;
-                translateX = position * 420;
-                translateZ = -200;
-                scale = 0.65;
-                opacity = 0.6;
+                // Further cards
+                translateX = position * 360;
+                translateY = Math.abs(position) * 50;
+                rotate = position * 12;
+                scale = 0.75;
+                opacity = 0.8;
                 zIndex = 80;
               } else if (Math.abs(position) === 3) {
                 // Even further
-                rotateY = position * 62;
-                translateX = position * 520;
-                translateZ = -280;
-                scale = 0.5;
-                opacity = 0.4;
+                translateX = position * 440;
+                translateY = Math.abs(position) * 60;
+                rotate = position * 15;
+                scale = 0.65;
+                opacity = 0.6;
                 zIndex = 70;
               } else {
                 // Hidden cards
-                rotateY = position * 65;
-                translateX = position * 580;
-                translateZ = -350;
-                scale = 0.4;
-                opacity = 0.2;
+                translateX = position * 500;
+                translateY = Math.abs(position) * 70;
+                rotate = position * 18;
+                scale = 0.55;
+                opacity = 0.4;
                 zIndex = 60;
               }
 
@@ -115,13 +114,12 @@ const NewsSection = () => {
                   style={{
                     transform: `
                       translateX(${translateX}px)
-                      translateZ(${translateZ}px)
-                      rotateY(${rotateY}deg)
+                      translateY(${translateY}px)
+                      rotate(${rotate}deg)
                       scale(${scale})
                     `,
                     opacity: opacity,
-                    transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                    transformStyle: 'preserve-3d',
+                    transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                     zIndex: zIndex,
                   }}
                 >
