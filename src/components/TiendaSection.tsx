@@ -4,7 +4,7 @@ import tiendaBackground from "@/assets/tienda-background.png";
 
 const TiendaSection = () => {
   return (
-    <section id="tienda" className="py-32 bg-muted/50 relative overflow-hidden min-h-[800px] flex items-center">
+    <section id="tienda" className="min-h-screen py-32 bg-muted/50 relative overflow-hidden flex items-center">
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${tiendaBackground})` }}></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
