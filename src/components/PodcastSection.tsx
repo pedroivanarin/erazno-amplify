@@ -63,16 +63,33 @@ const PodcastSection = () => {
   return (
     <section 
       id="podcast" 
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="min-h-screen flex items-center relative overflow-hidden animate-gradient-slow"
       style={{
-        background: 'linear-gradient(to bottom, #ff416c, #ff4b2b)'
+        background: 'linear-gradient(-45deg, #ff416c, #ff4b2b, #ff6a50, #ff416c)',
+        backgroundSize: '400% 400%'
       }}
     >
       <div className="container mx-auto px-4 w-full">
         <div className="max-w-4xl mx-auto">
           {/* Big Player */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-white/20">
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-white/20 relative">
             
+            {/* Speed Control Button - Top Left */}
+            <button
+              className="absolute top-6 left-6 text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors"
+              aria-label="Playback speed"
+            >
+              1x
+            </button>
+
+            {/* More Episodes Button - Top Right */}
+            <button
+              className="absolute top-6 right-6 text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors whitespace-nowrap"
+              aria-label="More episodes"
+            >
+              Más episodios
+            </button>
+
             {/* Podcast Artwork */}
             <div className="flex justify-center mb-8">
               <div className="w-64 h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30">
@@ -137,16 +154,8 @@ const PodcastSection = () => {
               </span>
             </div>
 
-            {/* Controls */}
-            <div className="flex items-center justify-center gap-6">
-              {/* Speed Control Button */}
-              <button
-                className="text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors"
-                aria-label="Playback speed"
-              >
-                1x
-              </button>
-
+            {/* Controls - Centered */}
+            <div className="flex items-center justify-center gap-8">
               {/* Previous Button */}
               <button
                 onClick={handlePrevious}
@@ -176,14 +185,6 @@ const PodcastSection = () => {
                 aria-label="Next"
               >
                 <SkipForward size={40} fill="white" />
-              </button>
-
-              {/* More Episodes Button */}
-              <button
-                className="text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors whitespace-nowrap"
-                aria-label="More episodes"
-              >
-                Más episodios
               </button>
             </div>
 
