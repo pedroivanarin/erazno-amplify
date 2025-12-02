@@ -8,9 +8,8 @@ const Navigation = () => {
   const location = useLocation();
   
   const navLinks = [
+    { name: "Shows Destacados", href: "#podcast" },
     { name: "Las 10 de Erazno", href: "#las-10" },
-    { name: "Promociones", href: "#promociones" },
-    { name: "Shows Destacados", href: "#shows" },
     { name: "Tienda", href: "#tienda" },
     { name: "Contacto", href: "#contacto" },
   ];
