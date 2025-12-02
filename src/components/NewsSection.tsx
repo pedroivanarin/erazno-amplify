@@ -160,32 +160,20 @@ const NewsSection = () => {
             })}
           </div>
           
-          {/* Navigation Buttons Below */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={() => {
-                const newIndex = currentIndex - 1;
-                setCurrentIndex(newIndex < 0 ? newsItems.length - 1 : newIndex);
-              }}
-              className="bg-background border border-border rounded-full p-3 hover:bg-muted transition-colors shadow-lg"
-              aria-label="Previous"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-            
-            <button
-              onClick={() => {
-                setCurrentIndex((currentIndex + 1) % newsItems.length);
-              }}
-              className="bg-background border border-border rounded-full p-3 hover:bg-muted transition-colors shadow-lg"
-              aria-label="Next"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
+          {/* Dot Pagination at Bottom */}
+          <div className="flex items-center justify-center gap-2 mt-16">
+            {newsItems.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentIndex 
+                    ? 'w-8 h-2 bg-primary' 
+                    : 'w-2 h-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>
