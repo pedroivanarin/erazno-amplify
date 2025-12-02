@@ -127,11 +127,6 @@ const PodcastSection = () => {
               />
             </div>
 
-            {/* Playback Speed */}
-            <div className="flex justify-center mb-3">
-              <span className="text-white text-sm font-semibold">1x</span>
-            </div>
-
             {/* Time Display */}
             <div className="flex items-center justify-between mb-12">
               <span className="text-white text-sm font-semibold tabular-nums">
@@ -143,7 +138,15 @@ const PodcastSection = () => {
             </div>
 
             {/* Controls */}
-            <div className="flex items-center justify-center gap-8">
+            <div className="flex items-center justify-center gap-6">
+              {/* Speed Control Button */}
+              <button
+                className="text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors"
+                aria-label="Playback speed"
+              >
+                1x
+              </button>
+
               {/* Previous Button */}
               <button
                 onClick={handlePrevious}
@@ -173,6 +176,14 @@ const PodcastSection = () => {
                 aria-label="Next"
               >
                 <SkipForward size={40} fill="white" />
+              </button>
+
+              {/* More Episodes Button */}
+              <button
+                className="text-white bg-white/10 px-4 py-2 rounded-full font-semibold hover:bg-white/20 transition-colors whitespace-nowrap"
+                aria-label="More episodes"
+              >
+                Más episodios
               </button>
             </div>
 
