@@ -112,6 +112,10 @@ const PodcastSection = () => {
     >
       <div className="container mx-auto px-4 w-full">
         <div className="max-w-4xl mx-auto">
+          {/* Section Title */}
+          <h2 className="text-5xl font-bold text-white text-center mb-12 animate-fade-in">
+            Shows Destacados
+          </h2>
           {/* Big Player */}
           <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-12 shadow-2xl border border-white/20 relative">
             
