@@ -84,15 +84,20 @@ const PodcastSection = () => {
               </div>
             </div>
 
-            {/* Episode Title */}
-            <div className="text-center mb-8">
-              <h3 className="text-white text-2xl font-bold leading-relaxed">
-                Las 10 con Infieles, Parodias, el Chokolatazo, Hembras vs Machos, Asesinos Inesperados y más....
-              </h3>
+            {/* Episode Title - Scrolling */}
+            <div className="mb-8 overflow-hidden">
+              <div className="animate-scroll-fast whitespace-nowrap">
+                <span className="text-white text-2xl font-doto font-bold inline-block px-4">
+                  Las 10 con Infieles, Parodias, el Chokolatazo, Hembras vs Machos, Asesinos Inesperados y más....
+                </span>
+                <span className="text-white text-2xl font-doto font-bold inline-block px-4">
+                  Las 10 con Infieles, Parodias, el Chokolatazo, Hembras vs Machos, Asesinos Inesperados y más....
+                </span>
+              </div>
             </div>
 
             {/* Progress Bar */}
-            <div className="mb-4">
+            <div className="mb-2">
               <input
                 type="range"
                 min="0"
@@ -120,6 +125,11 @@ const PodcastSection = () => {
                   background: `linear-gradient(to right, white ${(currentTime / duration) * 100}%, rgba(255,255,255,0.2) ${(currentTime / duration) * 100}%)`
                 }}
               />
+            </div>
+
+            {/* Playback Speed */}
+            <div className="flex justify-center mb-3">
+              <span className="text-white text-sm font-semibold">1x</span>
             </div>
 
             {/* Time Display */}
