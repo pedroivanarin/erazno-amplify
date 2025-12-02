@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroBackground from "@/assets/hero-background.png";
 import { Play } from "lucide-react";
 
 const HeroSection = () => {
