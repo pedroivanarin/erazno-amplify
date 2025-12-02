@@ -241,7 +241,7 @@ const PodcastSection = () => {
 
           {/* Slide-in Playlist Panel */}
           <div 
-            className={`absolute top-0 right-0 h-full w-full md:w-[450px] bg-white/10 backdrop-blur-lg border-l border-white/20 shadow-2xl transition-transform duration-500 ease-in-out overflow-hidden ${
+            className={`absolute top-[10%] right-0 h-[80%] w-full md:w-[450px] bg-white/10 backdrop-blur-lg border-l border-white/20 shadow-2xl transition-transform duration-500 ease-in-out overflow-hidden rounded-l-2xl ${
               showPlaylist ? 'translate-x-0' : 'translate-x-full'
             }`}
           >
