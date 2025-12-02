@@ -2,8 +2,8 @@ import { Headphones } from "lucide-react";
 
 const PodcastSection = () => {
   return (
-    <section id="podcast" className="py-16 bg-muted/50">
-      <div className="container mx-auto px-4">
+    <section id="podcast" className="min-h-screen bg-muted/50 flex items-center">
+      <div className="container mx-auto px-4 w-full">
         <div className="max-w-4xl mx-auto text-center mb-8">
           <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-4">
             <Headphones className="h-8 w-8 text-primary" />
