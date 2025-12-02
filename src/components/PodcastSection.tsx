@@ -142,7 +142,13 @@ const PodcastSection = () => {
 
             {/* Episode Title - Scrolling */}
             <div className="mb-8 overflow-hidden">
-              <div className="animate-scroll-fast whitespace-nowrap">
+              <div className="flex animate-scroll-fast whitespace-nowrap">
+                <span className="text-white text-2xl font-doto font-bold inline-block px-4">
+                  {currentEpisode.title}
+                </span>
+                <span className="text-white text-2xl font-doto font-bold inline-block px-4">
+                  {currentEpisode.title}
+                </span>
                 <span className="text-white text-2xl font-doto font-bold inline-block px-4">
                   {currentEpisode.title}
                 </span>
