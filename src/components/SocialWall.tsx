@@ -37,7 +37,7 @@ const SocialWall = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Síguenos en Redes</h2>
-          <p className="text-muted-foreground">Únete a nuestra comunidad en redes sociales</p>
+          <p className="text-muted-foreground">Hazte chido. Síguenos en nuestras redes.</p>
           <div className="flex items-center justify-center gap-4 mt-6">
             <a
               href="#"
