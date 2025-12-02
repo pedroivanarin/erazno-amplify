@@ -27,18 +27,14 @@ const HeroSection = () => {
           <p className="text-xl md:text-2xl mb-8 text-white/90">
             Platicamos con Luciano Luna, Mar Solis, Regulo Caro, Danny Lux, Alison Solis, Banda Renovación y más...
           </p>
-          <div className="flex items-center gap-4">
-            <Button 
-              onClick={scrollToPodcast}
-              size="lg" 
-              className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 font-bold"
-            >
-              Escúchalo ahora
-            </Button>
-            <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:scale-110 transition-transform cursor-pointer group">
-              <Play className="h-6 w-6 text-accent-foreground group-hover:animate-pulse" />
-            </div>
-          </div>
+          <Button 
+            onClick={scrollToPodcast}
+            size="lg" 
+            className="text-lg px-8 py-6 shadow-glow hover:scale-105 transition-transform bg-accent text-accent-foreground hover:bg-accent/90 font-bold flex items-center gap-3"
+          >
+            Escúchalo ahora
+            <Play className="h-5 w-5 fill-current" />
+          </Button>
         </div>
       </div>
     </section>
