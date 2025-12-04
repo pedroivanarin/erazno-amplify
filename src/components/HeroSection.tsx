@@ -21,8 +21,7 @@ const HeroSection = () => {
             Episodio Especial.
           </p>
           <h1 className="text-[2.7rem] md:text-[4.05rem] font-black mb-6 text-white drop-shadow-lg leading-tight">
-            Desde Las Vegas <br />
-            en los Latin Grammy
+            Hola Héctor
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
             Platicamos con Luciano Luna, Mar Solis, Regulo Caro, Danny Lux, Alison Solis, Banda Renovación y más...
